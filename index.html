@@ -4,7 +4,12 @@
 <html>
  <script src='http://cdn.ractivejs.org/latest/ractive.js'></script>
  <input value="{{banica}}"><input value="{{boza}}">
- <p>{{banica}} с {{boza}}</p>
+
+  <div id='container'></div>
+  <script id='template' type='text/ractive'>
+   <p>{{banica}} с {{boza}}</p>
+  </script>
+
  <script>
    var ractive = new Ractive({});
    
