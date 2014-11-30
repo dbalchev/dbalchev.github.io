@@ -17,7 +17,7 @@ myApp.controller("scoreboard", function($scope) {
     var newPlayer = {name:name, total:total};
     for(var score in $scope.scoreRows)
       newPlayer[$scope.scoreRows[score]] = 0;
-    players.push(newPlayer);
+    $scope.players.push(newPlayer);
   }
   
 });
@@ -34,7 +34,7 @@ myApp.controller("player-add", function($scope) {
   <div ng-controller="scoreboard">
     <div ng-controller="player-add">
       <input type="text" ng-model="newPlayerName">
-      <input type="button" ng-click="addPlayer()">
+      <input type="button" ng-click="addPlayer()" value="add">
     </div>
     <table>
       <tr>
