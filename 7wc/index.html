@@ -54,7 +54,7 @@ myApp.controller("player-add", function($scope) {
       </tr>
       <tr ng-repeat="scoreRow in scoreRows">
         <td>
-          {{scoreRow}}
+          {{scoreNames[scoreRow]}}
         </td>
         <td ng-repeat="player in players">
           <input type="number" ng-model="player[scoreRow]">
