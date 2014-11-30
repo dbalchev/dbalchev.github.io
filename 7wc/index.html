@@ -21,6 +21,7 @@ myApp.controller("scoreboard", function($scope) {
   </div>
   <table ng-controller="scoreboard">
     <tr>
+      <th></th>
       <th ng-repeat="player in players">
         {{player.name}}
       </th>
@@ -34,9 +35,10 @@ myApp.controller("scoreboard", function($scope) {
       </td>
     </tr>
     <tr>
-      <th ng-repeat="player in players">
+      <td></td>
+      <td ng-repeat="player in players">
         {{player.total()}}
-      </th>
+      </td>
     </tr>
   </table>
   </body>
