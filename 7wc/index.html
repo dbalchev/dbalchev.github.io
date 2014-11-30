@@ -24,7 +24,7 @@
           {{scoreNames[scoreRow]}}
         </td>
         <td ng-repeat="player in players">
-          <input type="number" ng-model="player[scoreRow]">
+          <input type="number" ng-model="player[scoreRow]" class="tr-{{scoreRow}}">
         </td>
       </tr>
       <tr>
