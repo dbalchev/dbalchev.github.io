@@ -9,7 +9,7 @@ myApp.controller("scoreboard", function($scope) {
   function total() {
     var result = 0;
     for(var score in $scope.scoreRows)
-      result += this[score];
+      result += this[$scope.scoreRows[score]];
     return result
   }
   $scope.players   = [{name:"d", war:-6, science:2, total:total}, {name:"m", war:6, total:total}]
