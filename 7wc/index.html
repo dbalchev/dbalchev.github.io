@@ -6,40 +6,58 @@
 var myApp = angular.module("7wc", []);
 myApp.controller("scoreboard", function($scope) {
   $scope.scoreRows = ["war", "science"];
-  function total() {
+  $scope.players= []
+  var total = function() {
     var result = 0;
     for(var score in $scope.scoreRows)
       result += this[$scope.scoreRows[score]];
     return result
   }
-  $scope.players   = [{name:"d", war:-6, science:2, total:total}, {name:"m", war:6, total:total}]
+  $scope.addPlayer = function(name) {
+    var newPlayer = {name:name, total:total};
+    for(var score in $scope.scoreRows)
+      newPlayer[$scope.scoreRows[score]] = 0;
+    players.push(newPlayer);
+  }
+  
+});
+myApp.controller("player-add", function($scope) {
+  $scope.newPlayerName = "";
+  $scope.addPlayer = function() {
+    $scope.$parent.addPlayer($scope.newPlayerName);
+    $scope.newPlayerName = "";
+  }
 });
     </script>
   </head>
   <body>
-  <div>
+  <div ng-controller="scoreboard">
+    <div ng-controller="player-add">
+      <input type="text" ng-model="newPlayerName">
+      <input type="button" ng-click="addPlayer()">
+    </div>
+    <table>
+      <tr>
+        <th></th>
+        <th ng-repeat="player in players">
+          <input type="text" ng-model="{{player.name}}">
+        </th>
+      </tr>
+      <tr ng-repeat="scoreRow in scoreRows">
+        <td>
+          {{scoreRow}}
+        </td>
+        <td ng-repeat="player in players">
+          <input type="number" ng-model="player[scoreRow]">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td ng-repeat="player in players">
+          {{player.total()}}
+        </td>
+      </tr>
+    </table>
   </div>
-  <table ng-controller="scoreboard">
-    <tr>
-      <th></th>
-      <th ng-repeat="player in players">
-        {{player.name}}
-      </th>
-    </tr>
-    <tr ng-repeat="scoreRow in scoreRows">
-      <td>
-        {{scoreRow}}
-      </td>
-      <td ng-repeat="player in players">
-        <input type="number" ng-model="player[scoreRow]">
-      </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td ng-repeat="player in players">
-        {{player.total()}}
-      </td>
-    </tr>
-  </table>
   </body>
 </html>
