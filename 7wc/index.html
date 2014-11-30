@@ -5,8 +5,17 @@
     <script>
 var myApp = angular.module("7wc", []);
 myApp.controller("scoreboard", function($scope) {
-  $scope.scoreRows = ["war", "science"];
-  $scope.players= []
+  $scope.scoreRows = ["war", "money","wonders", "building", "trade", "guides", "science"];
+  $scope.scoreNames = {
+    "war":"Война",
+    "money":"Пари",
+    "wonders":"Чудеса",
+    "building":"Сгради",
+    "trade":"Търговия",
+    "guides":"Гилдии",
+    "science":"Наука"
+  };
+  $scope.players= [];
   var total = function() {
     var result = 0;
     for(var score in $scope.scoreRows)
