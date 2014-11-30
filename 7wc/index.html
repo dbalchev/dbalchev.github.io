@@ -40,7 +40,7 @@ myApp.controller("player-add", function($scope) {
       <tr>
         <th></th>
         <th ng-repeat="player in players">
-          <input type="text" ng-model="{{player.name}}">
+          <input type="text" ng-model="player.name">
         </th>
       </tr>
       <tr ng-repeat="scoreRow in scoreRows">
