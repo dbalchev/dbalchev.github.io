@@ -19,13 +19,13 @@ myApp.controller("scoreboard", function($scope) {
   var total = function() {
     var result = 0;
     for(var score in $scope.scoreRows)
-      result += this[$scope.scoreRows[score]];
+      result += Number.parseInt(this[$scope.scoreRows[score]]) || 0;
     return result
   }
   $scope.addPlayer = function(name) {
     var newPlayer = {name:name, total:total};
     for(var score in $scope.scoreRows)
-      newPlayer[$scope.scoreRows[score]] = 0;
+      newPlayer[$scope.scoreRows[score]] = "";
     $scope.players.push(newPlayer);
   }
   
