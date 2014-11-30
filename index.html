@@ -1,21 +1,20 @@
+<html np-app="boza">
 <head>
   <title>boza</title>
-</head>
-<html>
- <script src='http://cdn.ractivejs.org/latest/ractive.js'></script>
-
-
-  <div id='container'></div>
-  <script id='template' type='text/ractive'>
-   <input value="{{banica}}"><input value="{{boza}}">
-   <p>{{banica}} с {{boza}}</p>
-  </script>
+ <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
 
  <script>
-   var ractive = new Ractive({
-     el: 'container',
-      template: '#template',
-   });
-   
+ var myApp = angular.module("boza", []);
+ myApp.controller("banica", function($scope) {
+   $scope.items = ["banica", "boza","kifla"]
+ });
  </script>
+</head>
+<body ng-controller="banica">
+  <ul>
+    <li ng-repeat="i in items">
+      {{i}}
+    </li>
+  </ul>
+</body>
 </html>
