@@ -18,7 +18,7 @@
           <input type="text" ng-model="player.name">
         </th>
       </tr>
-      <tr ng-repeat="scoreRow in scoreRows">
+      <tr ng-repeat="scoreRow in scoreRows" class="tr-{{scoreRow}}">
         <td>
           {{scoreNames[scoreRow]}}
         </td>
