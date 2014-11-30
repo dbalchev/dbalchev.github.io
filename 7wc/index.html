@@ -5,8 +5,14 @@
     <script>
 var myApp = angular.module("7wc", []);
 myApp.controller("scoreboard", function($scope) {
-  $scope.scoreRows = ["name", "war"];
-  $scope.players   = [{name:"d", war:-6}, {name:"m", war:6}]
+  $scope.scoreRows = ["war", "science"];
+  function total() {
+    var result = 0;
+    for(var score in $scope.scoreRows)
+      result += this[score];
+    return result
+  }
+  $scope.players   = [{name:"d", war:-6, science:2, total:total}, {name:"m", war:6, total:total}]
 });
     </script>
   </head>
@@ -14,13 +20,23 @@ myApp.controller("scoreboard", function($scope) {
   <div>
   </div>
   <table ng-controller="scoreboard">
+    <tr>
+      <th ng-repeat="player in players">
+        {{player.name}}
+      </th>
+    </tr>
     <tr ng-repeat="scoreRow in scoreRows">
       <td>
         {{scoreRow}}
       </td>
       <td ng-repeat="player in players">
-        <input type="text" ng-model="player[scoreRow]">
+        <input type="number" ng-model="player[scoreRow]">
       </td>
+    </tr>
+    <tr>
+      <th ng-repeat="player in players">
+        {{player.total()}}
+      </th>
     </tr>
   </table>
   </body>
