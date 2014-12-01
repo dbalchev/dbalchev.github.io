@@ -15,24 +15,20 @@
     </div>
     <table>
       <tr>
-        <th></th>
+        <th>Играч</th>
         <th ng-repeat="player in players">
           <input type="text" ng-model="player.name">
         </th>
       </tr>
       <tr ng-repeat="scoreRow in scoreRows" class="tr-{{scoreRow}}">
-        <td>
-          {{scoreNames[scoreRow]}}
-        </td>
+        <td>{{scoreNames[scoreRow]}}</td>
         <td ng-repeat="player in players">
           <input type="number" ng-model="player[scoreRow]" class="tr-{{scoreRow}}">
         </td>
       </tr>
       <tr>
-        <td></td>
-        <td ng-repeat="player in players">
-          {{player.total()}}
-        </td>
+        <td>Резултат</td>
+        <td ng-repeat="player in players">{{player.total()}}</td>
       </tr>
     </table>
   </div>
