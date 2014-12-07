@@ -22,11 +22,12 @@ myApp.controller("scoreboard", function($scope) {
                 for(var score in $scope.scoreRows)
                         newPlayer[$scope.scoreRows[score]] = "";
                 $scope.players.push(newPlayer);
-        }
+        };
 });
-myApp.controller("player-add", function($scope) {
+myApp.controller("player-add", function($scope, $event) {
         $scope.newPlayerName = "";
         $scope.addPlayer = function() {
         $scope.$parent.addPlayer($scope.newPlayerName);
         $scope.newPlayerName = "";
+        $event.preventDefault();
 }});
