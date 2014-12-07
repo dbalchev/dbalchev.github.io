@@ -10,7 +10,7 @@
   <body>
   <div ng-controller="scoreboard">
     <div ng-controller="player-add">
-      <form ng-click="addPlayer($event)">
+      <form ng-submit="addPlayer($event)">
         <input type="text" ng-model="newPlayerName" placeholder="Нов играч">
         <input type="submit" value="Добави">
       </form>
