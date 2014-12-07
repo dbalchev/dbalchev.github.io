@@ -24,10 +24,11 @@ myApp.controller("scoreboard", function($scope) {
                 $scope.players.push(newPlayer);
         };
 });
-myApp.controller("player-add", function($scope, $event) {
+myApp.controller("player-add", function($scope) {
         $scope.newPlayerName = "";
-        $scope.addPlayer = function() {
-        $scope.$parent.addPlayer($scope.newPlayerName);
-        $scope.newPlayerName = "";
-        $event.preventDefault();
-}});
+        $scope.addPlayer = function($event) {
+                $scope.$parent.addPlayer($scope.newPlayerName);
+                $scope.newPlayerName = "";
+                $event.preventDefault();
+        }
+});
