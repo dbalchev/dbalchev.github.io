@@ -14,7 +14,7 @@ myApp.controller("scoreboard", function($scope) {
         var total = function() {
                 var result = 0;
                 for(var score in $scope.scoreRows)
-                        result += Number.parseInt(this[$scope.scoreRows[score]]) || 0;
+                        result += parseInt(this[$scope.scoreRows[score]], 10) || 0;
                 return result;
         }
         $scope.addPlayer = function(name) {
